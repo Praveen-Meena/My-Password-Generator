@@ -17,7 +17,8 @@ const symbols = '~`!@#$%^&*()-_+={}[]\|:;"<>,.?/';
 let password = ""; 
 let passwordLength = 10; 
 let checkCount = 0; 
-// set strength color to white initially
+// set strength color to white initially 
+setIndicator("#ccc"); 
 
 slidehandler(); 
 
@@ -26,11 +27,14 @@ function slidehandler() {
     inputSlider.value = passwordLength; 
     lengthDisplay.innerText = passwordLength; 
     // or bhi kuch karna hai ?
+    const min = inputSlider.min;
+    const max = inputSlider.max;
+    inputSlider.style.backgroundSize = ( (passwordLength - min)*100/(max - min)) + "% 100%"   /* Function to calculate how much slider to be filled with voilet color */
 }
 
 function setIndicator(color){ 
     indicator.style.backgroundColor = color; 
-    // indicator.style.box-shadow = 0 0 50px color; 
+    indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;  
 }
 
 function getRndInteger(min, max){
@@ -81,10 +85,10 @@ function calcStrength(){
 async function copyContent(){                                              //promises also present 
     try{
         await navigator.clipboard.writeText(passwordDisplay.value);
-        copyMsg.innerText = "copy";
+        copyMsg.innerText = "copied";
     }
     catch(e){
-        copyMsg.innerText = "Fail";
+        copyMsg.innerText = "failed";
     }
 
     // To make copy wala text visible 

@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- NOT ADDED -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
+      rel="stylesheet"
+    /> -->
+    
+    <link rel="stylesheet" href="STyle.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,8 +24,8 @@
         <!-- Password length Section -->
         <div class="display-container">
             <input readonly placeholder="Password" class="display" data-passwordDisplay>
-            <button data-copy>
-                <span data-copyMsg></span>
+            <button class="copyBtn" data-copy>
+                <span class="tooltip" data-copyMsg></span>
                 <img src="./assets/copy.svg" alt="copy" width="23" height="23">
             </button>
         </div>
@@ -32,19 +42,19 @@
             <input type="range" min="1" max="20" class="slider" step="1" data-lengthSlider>
 
             <!-- CheckBox -->
-            <div>
+            <div class="check">
                 <input type="checkbox" name="" id="uppercase">
                 <label for="uppercase">Includes Uppercase Letter</label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" name="" id="lowercase">
                 <label for="lowercase">Includes lowercase Letter</label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" name="" id="numbers">   
                 <label for="numbers">Includes letter </label>
             </div>
-            <div>
+            <div class="check">
                 <input type="checkbox" name="" id="symbols">
                 <label for="symbols">Includes Symbol</label>
             </div>
@@ -53,7 +63,7 @@
             <!-- Strenght Section -->
             <div class="strength-conatainer">
                 <p>Strength</p>
-                <div data-indicator></div>
+                <div class="indicator" data-indicator></div>
             </div>
 
             <!-- Password-generator -->
